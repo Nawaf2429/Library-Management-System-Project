@@ -1,0 +1,47 @@
+library = [
+    {"title": "Rich Dad Poor Dad", "author": "Robert Kiyosaki", "year": 1997},
+    {"title": "Zero to One", "author": "Peter Thiel", "year": 2014},
+    {"title": "Outliers", "author": "Malcolm Gladwell", "year": 2008},
+]
+
+def add_book():
+    library.append({"title": "The Lean Startup", "author": "Eric Ries", "year": 2011})
+    print("A new book added.\n")
+
+def show_books():
+    if library:
+        print("Book selection:")
+        for i, book in enumerate(library, 1):
+            title = book["title"]
+            author = book["author"]
+            year = book["year"]
+            print(f"{i}. {title} - {author} ({year})")
+    else:
+        print("The library is empty.")
+    print()
+
+def search_book():
+    for book in library:
+        if book["title"] == "Muqaddimah Ibn Khaldun":
+            print(f"Found the book: {book['title']} - {book['author']} ({book['year']})\n")
+            return
+    print("The book was not found.\n")
+
+def delete_book():
+    for book in library:
+        if book["title"] == "Hayy ibn Yaqzan":
+            library.remove(book)
+            print("The book has been deleted.\n")
+            return
+    print("The book was not found.\n")
+
+def main():
+    print("=== Library System ===")
+    show_books()
+    add_book()
+    search_book()
+    delete_book()
+    show_books()
+    print("Finished.\n")
+
+main()
